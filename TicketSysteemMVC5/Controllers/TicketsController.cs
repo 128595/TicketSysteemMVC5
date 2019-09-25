@@ -186,7 +186,8 @@ namespace TicketSysteemMVC5.Controllers
                     Applicatie = db.Applicaties.Find(ticketView.ApplicatieId),
                     Datum = DateTime.Today,
                     Onderwerp = ticketView.Onderwerp,
-                    Omschrijving = ticketView.Omschrijving
+                    Omschrijving = ticketView.Omschrijving,
+                    Categorie = null,
                 };
                 db.Tickets.Add(ticket);
                 db.SaveChanges();
@@ -249,6 +250,7 @@ namespace TicketSysteemMVC5.Controllers
             if (ticket != null)
             {
                 ticket.Omschrijving = editTicket.Omschrijving;
+                ticket.Categorie = editTicket.Categorie;
 
                 if (editTicket.Status == TicketStatus.Nieuw)
                     editTicket.Status = TicketStatus.Bezet;

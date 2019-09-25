@@ -15,6 +15,15 @@ namespace TicketSysteemMVC5.Models
         Beheer,
     }
 
+    public enum TicketCategories
+    {
+        Spoed,
+        Open,
+        Wens,
+        Project,
+        Onuitvoerbaar,
+    }
+
     /// <summary>
     /// Ticket voor Applicatiebeheer
     /// </summary>
@@ -62,8 +71,14 @@ namespace TicketSysteemMVC5.Models
 
         /// <summary>
         /// Status van de Ticket
-        /// <para>Standaardwaarde is "Nieuw</para>
+        /// <para>Standaardwaarde is "Nieuw"</para>
         /// </summary>
         public TicketStatus Status { get; set; } = TicketStatus.Nieuw;
+
+        /// <summary>
+        /// Categorie van de Ticket
+        /// <para>Standaardwaarde is "Nieuw"</para>
+        /// </summary>
+        public TicketCategories? Categorie { get; set; }
     }
 }
