@@ -5,11 +5,14 @@ namespace TicketSysteemMVC5.Models
 {
     public enum TicketStatus
     {
-        
         Nieuw,
-        [Display(Name="In behandeling")]
-        InBehandeling,
-        Gesloten
+        Bezet,
+        Afgerond,
+        Doorgevoerd,
+        Retour,
+        Incompleet,
+        Test,
+        Beheer,
     }
 
     /// <summary>
