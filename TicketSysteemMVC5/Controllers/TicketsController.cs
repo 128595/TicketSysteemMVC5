@@ -64,7 +64,7 @@ namespace TicketSysteemMVC5.Controllers
             if (roles.Contains(RoleNames.Medewerker))
             {
                 selectie = selectie
-                    .Where(t => t.Applicatie.Beheerder.Id == gebruiker.Id && t.Status != TicketStatus.Gesloten);
+                    .Where(t => t.Applicatie.Beheerder.Id == gebruiker.Id && t.Status != TicketStatus.Afgerond);
 
                 var applicaties = db.Applicaties
                     .Where(a => a.Beheerder.Id == gebruiker.Id);
@@ -75,7 +75,7 @@ namespace TicketSysteemMVC5.Controllers
             {
                 selectie = selectie
                     .Where(t => t.Klant.Id == gebruiker.Id
-                                && t.Status != TicketStatus.Gesloten);
+                                && t.Status != TicketStatus.Afgerond);
             }
 
             var tickets = selectie.OrderBy(t => t.Status).ThenBy(t => t.Datum);
@@ -251,7 +251,7 @@ namespace TicketSysteemMVC5.Controllers
                 ticket.Omschrijving = editTicket.Omschrijving;
 
                 if (editTicket.Status == TicketStatus.Nieuw)
-                    editTicket.Status = TicketStatus.InBehandeling;
+                    editTicket.Status = TicketStatus.Bezet;
 
                 ticket.Status = editTicket.Status;
                 db.Entry(ticket).State = EntityState.Modified;
@@ -317,7 +317,7 @@ namespace TicketSysteemMVC5.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
             }
 
-            ticket.Status = TicketStatus.Gesloten;
+            ticket.Status = TicketStatus.Afgerond;
             db.Entry(ticket).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
