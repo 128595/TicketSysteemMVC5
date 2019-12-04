@@ -68,7 +68,7 @@ namespace TicketSysteemMVC5.Models
         public TicketStatus Status { get; set; } = TicketStatus.Nieuw;
 
         /// <summary>
-        /// M.W.D. Buis (04-12-2019): model eigenschap toegevoegd voor het opslaan van meerdere technicus.
+        /// #2: M.W.D. Buis (04-12-2019): model eigenschap toegevoegd voor het opslaan van meerdere technicus.
         /// </summary>
         public List<ApplicationUser> Technicussen { get; set; }
     }
