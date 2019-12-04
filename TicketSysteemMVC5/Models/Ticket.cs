@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TicketSysteemMVC5.Models
@@ -65,5 +66,10 @@ namespace TicketSysteemMVC5.Models
         /// <para>Standaardwaarde is "Nieuw</para>
         /// </summary>
         public TicketStatus Status { get; set; } = TicketStatus.Nieuw;
+
+        /// <summary>
+        /// M.W.D. Buis (04-12-2019): model eigenschap toegevoegd voor het opslaan van meerdere technicus.
+        /// </summary>
+        public List<ApplicationUser> Technicussen { get; set; }
     }
 }
