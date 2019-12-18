@@ -113,6 +113,17 @@ namespace TicketSysteemMVC5.Controllers
             return View(Gebruikers(RoleNames.Medewerker));
         }
 
+        // #2: M.W.D. Buis (11-12-2019): pagina toegevoegd voor technicussen.
+        /// <summary>
+        /// Laat alle Technicussen zien
+        /// </summary>
+        /// <returns>View met alle Technicussen</returns>
+        [Authorize(Roles = RoleNames.Administrator)]
+        public ActionResult Technicussen()
+        {
+            return View(Gebruikers(RoleNames.Technicus));
+        }
+
         /// <summary>
         /// Laat de gegevens van één bepaalde gebruiker zien
         /// </summary>
@@ -141,9 +152,11 @@ namespace TicketSysteemMVC5.Controllers
         /// <returns>View met MedewerkerviewModel</returns>
         public ActionResult Create()
         {
-            return View();
+            return View(new MedewerkerViewModel
+            {
+                Rollen = db.Roles.ToList(),
+            });
         }
-
 
         /// <summary>
         /// Administrator maakt een nieuwe medewerker aan </summary>
@@ -164,13 +177,13 @@ namespace TicketSysteemMVC5.Controllers
                     Tussenvoegsel = medewerker.Tussenvoegsel,
                     Achternaam = medewerker.Achternaam,
                     Telefoonnummer = medewerker.Telefoonnummer,
-                    ChangePassword = true
+                    ChangePassword = true,
                 };
                 var result = UserManager.Create(user, DefaultRolesAndUsers.PassWord);
 
                 if (result.Succeeded)
                 {
-                    UserManager.AddToRole(user.Id, RoleNames.Medewerker);
+                    UserManager.AddToRole(user.Id, medewerker.Rol);
 
                     return RedirectToAction("Medewerkers");
                 }

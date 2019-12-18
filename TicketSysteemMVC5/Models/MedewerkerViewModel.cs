@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TicketSysteemMVC5.Models
 {
@@ -22,5 +24,9 @@ namespace TicketSysteemMVC5.Models
 
         [StringLength(11)]
         public string Telefoonnummer { get; set; }
+
+        public string Rol { get; set; }
+
+        public ICollection<IdentityRole> Rollen { get; set; }
     }
 }

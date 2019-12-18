@@ -267,6 +267,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Klanten.cshtml" />
+    <Content Include="Views\Account\Medewerkers.cshtml" />
+    <Content Include="Views\Account\Profiel.cshtml" />
+    <Content Include="Views\Account\_ApplicatieList.cshtml" />
+    <Content Include="Views\Account\_TicketList.cshtml" />
+    <Content Include="Views\Account\Technicussen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
