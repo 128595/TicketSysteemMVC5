@@ -25,9 +25,21 @@ namespace TicketSysteemMVC5.Models
         /// </summary>
         public string BeheerderId { get; set; }
 
+        // #2: M.W.D. Buis (20-12-2019): de Technicus.
+        /// <summary>
+        /// De technicus(sen) die de Applicatie beheert
+        /// </summary>
+        public string Technicus { get; set; }
+
+        // #2: M.W.D. Buis (20-12-2019): een lijst van Technicussen.
         /// <summary>
         /// Lijst met Medewerkers om Beheerder te kiezen
         /// </summary>
         public List<ApplicationUser> Medewerkers { get; set; }
+
+        /// <summary>
+        /// De technicus(sen) die de Applicatie beheert
+        /// </summary>
+        public List<ApplicationUser> Technicussen { get; set; }
     }
 }

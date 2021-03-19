@@ -178,6 +178,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909181342165_InitialCreate.cs" />
+    <Compile Include="Migrations\201909181342165_InitialCreate.Designer.cs">
+      <DependentUpon>201909181342165_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912041115462_Initial.cs" />
+    <Compile Include="Migrations\201912041115462_Initial.Designer.cs">
+      <DependentUpon>201912041115462_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912181055343_ticket-meerdere-technicussen.cs" />
+    <Compile Include="Migrations\201912181055343_ticket-meerdere-technicussen.Designer.cs">
+      <DependentUpon>201912181055343_ticket-meerdere-technicussen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Applicatie.cs" />
     <Compile Include="Models\ApplicatieViewModel.cs" />
@@ -258,6 +271,25 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Klanten.cshtml" />
+    <Content Include="Views\Account\Medewerkers.cshtml" />
+    <Content Include="Views\Account\Profiel.cshtml" />
+    <Content Include="Views\Account\_ApplicatieList.cshtml" />
+    <Content Include="Views\Account\_TicketList.cshtml" />
+    <Content Include="Views\Account\Technicussen.cshtml" />
+    <Content Include="Views\Home\_AdministratorNav.cshtml" />
+    <Content Include="Views\Home\_EmptyNav.cshtml" />
+    <Content Include="Views\Home\_KlantNav.cshtml" />
+    <Content Include="Views\Home\_MedewerkerNav.cshtml" />
+    <Content Include="Views\Applicaties\Create.cshtml" />
+    <Content Include="Views\Applicaties\Delete.cshtml" />
+    <Content Include="Views\Applicaties\Details.cshtml" />
+    <Content Include="Views\Applicaties\Edit.cshtml" />
+    <Content Include="Views\Applicaties\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -280,6 +312,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909181342165_InitialCreate.resx">
+      <DependentUpon>201909181342165_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912041115462_Initial.resx">
+      <DependentUpon>201912041115462_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912181055343_ticket-meerdere-technicussen.resx">
+      <DependentUpon>201912181055343_ticket-meerdere-technicussen.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -58,6 +58,14 @@ namespace TicketSysteemMVC5.Config
                 IdentityRole role = new IdentityRole { Name = RoleNames.Klant };
                 roleManager.Create(role);
             }
+
+            // Maak de rol Technicus aan
+            // #2: M.W.D. Buis (04-12-2019): nieuwe rol Technicus toegevoegd.
+            if (!roleManager.RoleExists(RoleNames.Technicus))
+            {
+                IdentityRole role = new IdentityRole { Name = RoleNames.Technicus };
+                roleManager.Create(role);
+            }
         }
     }
 }

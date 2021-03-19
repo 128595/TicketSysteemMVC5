@@ -42,6 +42,25 @@ namespace TicketSysteemMVC5.Controllers
             }
         }
 
+        // #2: M.W.D. Buis (18-12-2019): Krijg een lijst van alle Technicussen.
+        /// <summary>
+        /// Geeft een lijst van gebruikers met de rol "Technicus"
+        /// </summary>
+        private List<ApplicationUser> Technicussen
+        {
+            get
+            {
+                IdentityRole theRole = db.Roles
+                    .FirstOrDefault(r => r.Name.Equals(RoleNames.Technicus));
+
+                List<ApplicationUser> medewerkers = (db.Users
+                    .Where(u => u.Roles.Any(r => r.RoleId == theRole.Id)))
+                    .ToList();
+
+                return medewerkers;
+            }
+        }
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         public List<Applicatie> BeheerderApplicaties(string id)
@@ -146,7 +165,12 @@ namespace TicketSysteemMVC5.Controllers
         [Authorize(Roles = RoleNames.BewerkApplicaties)]
         public ActionResult Create()
         {
-            ApplicatieViewModel applicatieView = new ApplicatieViewModel {Medewerkers = Medewerkers};
+            ApplicatieViewModel applicatieView = new ApplicatieViewModel
+            {
+                Medewerkers = Medewerkers,
+                Technicussen = Technicussen,
+            };
+
             return View(applicatieView);
         }
 
@@ -207,8 +231,10 @@ namespace TicketSysteemMVC5.Controllers
                 Id = applicatie.Id,
                 Naam = applicatie.Naam,
                 BeheerderId = applicatie.Beheerder.Id,
-                Medewerkers = Medewerkers
+                Medewerkers = Medewerkers,
+                Technicussen = Technicussen,
             };
+
             return View(applicatieView);
         }
 
